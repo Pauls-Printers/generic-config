@@ -1,0 +1,28 @@
+name: Submodule Update
+
+#############################
+# Start the job on all push #
+#############################
+on:
+  push
+
+###############
+# Set the Job #
+###############
+jobs:
+  run:
+    strategy:
+      matrix:
+        repository: ['Pauls-Printers/hevo-config', 'Pauls-Printers/mz2-config']
+    runs-on: ubuntu-latest
+    steps:
+      ####################################
+      # Run the action against code base #
+      ####################################
+      - name: run action
+        id: run_action
+        uses: PaulRitter/github-action-create-commit-parent-submodule@v0.1
+        with:
+          github_token: ${{ secrets.GH_ACTIONS_TOKEN }}
+          parent_repository: ${{ matrix.repository }}
+          parent_branch: master
