@@ -23,6 +23,6 @@ jobs:
         id: run_action
         uses: PaulRitter/github-action-create-commit-parent-submodule@v1.0
         with:
-          github_token: ${{ secrets.GH_ACTIONS_TOKEN }}
+          github_token: ${{ GITHUB_TOKEN }}
           parent_repository: ${{ matrix.repository }}
           parent_branch: master
