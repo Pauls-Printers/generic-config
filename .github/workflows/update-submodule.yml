@@ -10,7 +10,7 @@ on:
 # Set the Job #
 ###############
 jobs:
-  run:
+  update-submodule:
     strategy:
       matrix:
         repository: ['Pauls-Printers/hevo-config', 'Pauls-Printers/mz2-config']
